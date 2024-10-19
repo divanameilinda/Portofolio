@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- --------- UNICONS ---------- -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      /* Pengaturan tampilan body agar form berada di tengah halaman */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* Pengaturan container form login */
+      .login-container {
+        margin-top: 20px; /* Bisa disesuaikan jika ingin jarak lebih */
+        background-color: rgb(228, 200, 200);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px; /* Mengatur lebar container form */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Pengaturan judul form */
+      .login-container h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      /* Pengaturan input text dan password */
+      .login-container input[type="text"],
+      .login-container input[type="password"] {
+        width: 100%; /* Lebar input 100% dari parent container */
+        padding: 10px; /* Padding dalam input */
+        margin: 10px 0; /* Jarak antar input */
+        border: 1px solid #ccc; /* Border abu-abu pada input */
+        border-radius: 4px; /* Membuat sudut input melengkung */
+      }
+
+      /* Pengaturan tombol submit, register, dan reset */
+      .login-container input[type="submit"],
+      .login-container input[type="reset"],
+      .login-container input[type="button"] {
+        width: 100%; /* Lebar tombol 100% dari parent container */
+        padding: 10px;
+        border: none; /* Menghilangkan border default pada tombol */
+        border-radius: 4px; /* Membuat sudut tombol melengkung */
+        background-color: #4caf50; /* Warna latar tombol submit hijau */
+        color: white; /* Warna teks tombol putih */
+        cursor: pointer; /* Menampilkan pointer saat tombol di-hover */
+        margin-top: 10px; /* Jarak antar tombol */
+      }
+
+      /* Pengaturan warna tombol reset (warna merah) */
+      .login-container input[type="reset"] {
+        background-color: #f44336;
+      }
+
+      /* Efek hover saat tombol diklik */
+      .login-container input[type="submit"]:hover,
+      .login-container input[type="reset"]:hover,
+      .login-container input[type="button"]:hover {
+        opacity: 0.9; /* Mengubah transparansi saat hover */
+      }
+
+      /* Menambahkan jarak untuk elemen */
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 20px; /* jarak bawah header */
+        text-align: center;
+        border-bottom: 2px solid rgba(152, 8, 8, 0.329);
+      }
+
+      li {
+        margin-left: 0px;
+        padding-left: 0;
+        list-style-position: inside;
+      }
+
+      ol {
+        margin-left: 0px; /* Mengatur jarak kiri untuk nomor daftar */
+        padding-left: 0; /* Menghilangkan padding default */
+        list-style-position: inside; /* Mengatur posisi angka di dalam list */
+      }
+
+      /* Menambahkan jarak untuk paragraf */
+      p {
+        margin-bottom: 6px; /* jarak bawah paragraf */
+      }
+
+      /* Menambahkan jarak atas pada konten utama */
+      main {
+        margin-top: 80px; /* Menambahkan jarak untuk menghindari header menutupi konten */
+      }
+
+      /* Agar warna syntax code berbeda */
+      .code-example {
+        color: #d8c9bc;
+        background-color: #5705058d;
+      }
+
+      .code-example i {
+        font-size: small;
+        color: rgb(191, 255, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- --------------- HEADER --------------- -->
+      <nav id="header">
+        <div class="nav-logo">
+          <p class="nav-name">DivanaTutorial</p>
+          <span>.</span>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+          <ul class="nav_menu_list">
+            <li class="nav_list">
+              <a href="index.html" class="nav-link">Home</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="tutorial.html" class="nav-link">Tutorial</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="tabel.html" class="nav-link">Cara Membuat Tabel</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="form.html" class="nav-link active-link"
+                >Cara Membuat Form</a
+              >
+              <div class="circle"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-menu-btn">
+          <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+
+      <!----------------------PENJELASAN TENTANG LANGKAH-LANGKAH MEMBUAT FORM -->
+      <main class="wrapper">
+        <h3>Tutorial Membuat Form</h3>
+        <p>
+          Perlu diperhatikan ketika membuat suatu form harus memahami beberapa
+          istilah atau singkatan yang ada di dalam syntax/code programnya,
+          seperti:
+        </p>
+        <ul>
+          <li>
+            tag <code>&lt;form&gt;</code> artinya <b>form</b> (digunakan untuk
+            mengelompokkan input dan kontrol lain).
+          </li>
+          <li>
+            tag <code>&lt;input&gt;</code> artinya <b>input field</b> (digunakan
+            untuk menerima input dari pengguna).
+          </li>
+          <li>
+            tag <code>&lt;label&gt;</code> artinya <b>label</b> (memberikan
+            deskripsi pada input field).
+          </li>
+          <li>
+            atribut <code>action</code> digunakan untuk menentukan URL untuk
+            mengirim data.
+          </li>
+          <li>
+            atribut <code>method</code> yang menunjukkan cara pengiriman data
+            (GET ketika mengambil data atau POST ketika mengirimkan data).
+          </li>
+          <li>
+            tag <code>&lt;button&gt;</code> untuk tombol yang dapat digunakan
+            untuk mengirim atau mereset form.
+          </li>
+        </ul>
+        <br />
+        Berikut adalah langkah-langkah untuk membuat form sederhana:
+        <ol>
+          <li>Gunakan tag <code>&lt;form&gt;</code> untuk membuat form.</li>
+          <li>
+            Tambahkan input field menggunakan tag <code>&lt;input&gt;</code>.
+          </li>
+          <li>
+            Gunakan tag <code>&lt;label&gt;</code> untuk memberikan label pada
+            input.
+          </li>
+          <li>
+            Atur atribut <code>action</code> dan <code>method</code> pada tag
+            <code>&lt;form&gt;</code>.
+          </li>
+        </ol>
+        <br />
+        <p><b>Contoh syntax membuat form sederhana:</b></p>
+        <div class="code-example">
+          <pre><code>&lt;form action="submit.php" method="POST"&gt;  <i>-----> membuat form</i>
+  &lt;label for="username"&gt;Username:&lt;/label&gt;  <i>-----> label untuk input username</i>
+  &lt;input type="text" id="username" name="username" required&gt;  <i>-----> input field username</i>
+  &lt;label for="password"&gt;Password:&lt;/label&gt;  <i>-----> label untuk input password</i>
+  &lt;input type="password" id="password" name="password" required&gt;  <i>-----> input field password</i>
+  &lt;input type="submit" value="Login"&gt;  <i>-----> tombol submit</i>
+  &lt;input type="reset" value="Reset"&gt;  <i>-----> tombol reset</i>
+&lt;/form&gt;  <i>-----> end form</i></code></pre>
+        </div>
+        <br />
+        <p>Contoh Form</p>
+        <!-- Menambahkan judul contoh form di atas form login -->
+
+        <div class="login-container">
+          <h2 id="form-title">Login</h2>
+          <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+
+            <input type="submit" value="Login" />
+            <input type="button" value="Register" id="register-btn" />
+            <input type="reset" value="Reset" />
+          </form>
+
+          <form id="register-form" style="display: none">
+            <h2 id="register-title">Register</h2>
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" name="new-username" required />
+
+            <label for="new-password">Your Password:</label>
+            <input
+              type="password"
+              id="new-password"
+              name="new-password"
+              required
+            />
+
+            <label for="confirm-password">Repeat Your Password:</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+
+            <input type="submit" value="Regist Now" />
+            <input type="button" value="Login" id="back-btn" />
+          </form>
+        </div>
+      </main>
+
+      <!-- --------------- FOOTER --------------- -->
+      <footer>
+        <div class="top-footer">
+          <p>Divana Meilinda Putri</p>
+        </div>
+        <div class="middle-footer">
+          <ul class="footer-menu">
+            <li class="footer_menu_list">
+              <a href="#home">Home</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="tutorial.html">Tutorial</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="tabel.html">Cara membuat tabel</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="form.html">Cara membuat form</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-social-icons">
+          <div class="icon">
+            <a href="https://www.instagram.com/divnaaamp_">
+              <i class="uil uil-instagram"></i>
+            </a>
+          </div>
+          <div class="icon">
+            <a
+              href="https://www.linkedin.com/in/divana-meilinda-putri-a1288a27a/"
+              target="_blank"
+            >
+              <i class="uil uil-linkedin-alt"></i>
+            </a>
+          </div>
+          <div class="icon">
+            <i class="uil uil-dribbble"></i>
+          </div>
+          <div class="icon">
+            <a href="https://github.com/divanameilinda" target="_blank">
+              <i class="uil uil-github-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="bottom-footer">
+          <p>
+            Copyright &copy;
+            <a href="#home" style="text-decoration: none">Divana</a> - All
+            rights reserved
+          </p>
+        </div>
+      </footer>
+
+      <!-- ----- TYPING JS Link ----- -->
+      <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+      <!-- ----- SCROLL REVEAL JS Link----- -->
+      <script src="https://unpkg.com/scrollreveal"></script>
+
+      <!-- ----- MAIN JS ----- -->
+      <script src="assets/js/main.js"></script>
+
+      <script>
+        // Menangani tombol register
+        document
+          .getElementById("register-btn")
+          .addEventListener("click", function () {
+            document.getElementById("login-form").style.display = "none"; // Sembunyikan form login
+            document.getElementById("register-form").style.display = "block"; // Tampilkan form register
+          });
+
+        // Menangani tombol kembali ke login
+        document
+          .getElementById("back-btn")
+          .addEventListener("click", function () {
+            document.getElementById("register-form").style.display = "none"; // Sembunyikan form register
+            document.getElementById("login-form").style.display = "block"; // Tampilkan form login
+          });
+      </script>
+    </div>
+  </body>
+</html>

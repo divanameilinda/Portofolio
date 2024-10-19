@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Pilih gambar:</p>
+    <img
+      id="gambar"
+      src="assets/images/fotodivana.jpg"
+      alt="gambar"
+      width="220"
+      height="277"
+    />
+
+    <p>Mengisi :</p>
+    <canvas
+      id="kanvas"
+      width="220"
+      height="277"
+      style="border: 1px solid #d3d3d3"
+    >
+      Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <p><button onclick="kanvas()">Try it</button></p>
+
+    <script>
+      function kanvas() {
+        var c = document.getElementById("kanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("gambar");
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+      }
+    </script>
+  </body>
+</html>

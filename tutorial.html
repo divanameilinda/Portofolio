@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- --------- UNICONS ---------- -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+  <!-- --------- CSS ---------- -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+<style>
+ .typedTutorial {
+        color: #570505; /* Kode warna merah gelap */
+        font-weight: bold; /* Optional: untuk menebalkan teks */
+    }
+
+    .container {
+        max-width: 1200px;  /* Sesuaikan dengan lebar maksimal konten */
+        margin: 0 auto;     /* Untuk membuatnya berada di tengah */
+        width: 100%;        /* Membuat container mengisi lebar layar sepenuhnya */
+    }
+
+    footer {
+        margin-top: 100px;
+        width: 100%;        /* Lebar footer mengikuti lebar container */
+        text-align: center;  /* Agar konten di dalam footer terpusat */
+    }
+</style>
+  <!-- --------- FAVICON ---------- -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+  <title>Tutorial</title>
+</head>
+<body>
+  <div class="container">
+    <!-- --------------- HEADER --------------- -->
+    <nav id="header">
+      <div class="nav-logo">
+        <p class="nav-name">DivanaTutorial</p>
+        <span>.</span>
+      </div>
+      <div class="nav-menu" id="myNavMenu">
+        <ul class="nav_menu_list">
+          <li class="nav_list">
+            <a href="index.html" class="nav-link active-link">Home</a>
+            <div class="circle"></div>
+          </li>
+          <li class="nav_list">
+            <a href="tabel.html" class="nav-link">Cara Membuat Tabel</a>
+            <div class="circle"></div>
+          </li>
+          <li class="nav_list">
+            <a href="form.html" class="nav-link">Cara Membuat Form</a>
+            <div class="circle"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-menu-btn">
+        <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+      </div>
+    </nav>
+
+    <!-- -------------- MAIN ---------------- -->
+    <main class="wrapper">
+      <!-- -------------- FEATURED BOX ---------------- -->
+      <section class="featured-box" id="home">
+        <div class="featured-text">
+          <div class="featured-text-card">
+            <span>Divana Meilinda Putri</span>
+          </div>
+          <div class="featured-name">
+            <p>Selamat Datang </p><span class="typedTutorial"></span><!-- Elemen baru untuk menampilkan "Serba Serbi Tutorial" -->
+          </div>
+          <div class="featured-text-info">
+            <p>
+              "Berisikan beberapa tutorial membuat form dan tabel sederhana beserta penjelasan yang mudah untuk dipahami, ENJOY GUYS!"
+            </p>
+          </div>
+          <div class="featured-text-btn">
+            <button class="btn blue-btn" onclick="location.href='tabel.html'">Cara Membuat Tabel</button>
+            <button class="btn blue-btn" onclick="location.href='form.html'">Cara Membuat Form</button>          </div>
+        </div>
+        <div class="featured-image">
+          <div class="image">
+            <img src="assets/images/tutorial2.jpg" alt="avatar" />
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------- FOOTER --------------- -->
+      <footer>
+        <div class="top-footer">
+          <p>Divana Meilinda Putri</p>
+        </div>
+        <div class="middle-footer">
+          <ul class="footer-menu">
+            <li class="footer_menu_list">
+              <a href="#home">Home</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="tabel.html">Cara membuat tabel</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="form.html">cara membuat form</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-social-icons">
+          <div class="icon"><i class="uil uil-instagram"></i></div>
+          <div class="icon">
+            <a href="https://www.linkedin.com/in/divana-meilinda-putri-a1288a27a/" target="_blank">
+              <i class="uil uil-linkedin-alt"></i>
+            </a>
+          </div>
+          <div class="icon"><i class="uil uil-dribbble"></i></div>
+          <div class="icon"><i class="uil uil-github-alt"></i></div>
+        </div>
+        <div class="bottom-footer">
+          <p>
+            Copyright &copy;
+            <a href="#home" style="text-decoration: none">Divana</a> - All rights reserved
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <script src="assets/js/main.js"></script>
+    <script>
+      var typingEffect = new Typed(".typedTutorial", {
+  strings: ["Serba Serbi Tutorial"],
+  loop: true,
+  typeSpeed: 10,
+  backSpeed: 80,
+  backDelay: 2000,
+});
+    </script>
+
+  </body>
+</html>
