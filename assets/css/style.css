@@ -20,7 +20,11 @@
   --third-color: #d9abab; /* Emas mewah dan tegas untuk elemen penting dan aksen premium */
 
   /* Shadow and Hover Effects */
-  --first-shadow-color: rgb(255, 20, 141); /* Shadow putih lembut untuk menambah kedalaman */
+  --first-shadow-color: rgb(
+    255,
+    20,
+    141
+  ); /* Shadow putih lembut untuk menambah kedalaman */
   --second-shadow-color: rgba(
     0,
     0,
@@ -655,4 +659,4 @@ footer {
   .input-field {
     width: 100%;
   }
- 
+}
