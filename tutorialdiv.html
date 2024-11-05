@@ -23,6 +23,32 @@
         font-weight: bold;
         margin-top: 20px;
       }
+      .learn-more-button {
+        background-color: #570505;
+        color: #f7f7f7;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .run-button {
+        background-color: #570505;
+        color: #f7f7f7;
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      .undo-button {
+        background-color: #570505;
+        color: #f7f7f7;
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      .tutorial-box h3 {
+        color: #570505;
+        margin-bottom: 0px;
+      }
+      .tutorial-box textarea {
+        background-color: rgb(214, 171, 188);
+        font-weight: bold;
+      }
     </style>
     <!-- --------- FAVICON ---------- -->
     <link
@@ -43,21 +69,19 @@
         <div class="nav-menu" id="myNavMenu">
           <ul class="nav_menu_list">
             <li class="nav_list">
-              <a href="index.html" class="nav-link active-link">Home</a>
+              <a href="index.html" class="nav-link">Home</a>
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="tabel.html" class="nav-link">Cara Membuat Tabel</a>
+              <a href="tabel.html" class="nav-link">Buat Tabel</a>
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="form.html" class="nav-link">Cara Membuat Form</a>
+              <a href="form.html" class="nav-link">Buat Form</a>
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="location.html" class="nav-link"
-                >Cara Membuat Titik Lokasi</a
-              >
+              <a href="loc.html" class="nav-link"> Buat Titik Lokasi</a>
               <div class="circle"></div>
             </li>
           </ul>
@@ -162,11 +186,11 @@
             <textarea
               class="editor"
               rows="20"
-              id="contentTabelCode"
+              id="contentCode"
               placeholder="Masukkan kode HTML dan CSS di sini"
             >
            
-            
+            <!-- Untuk torial tabel -->
             <!DOCTYPE html test>
             <html>
             <head>
@@ -296,12 +320,6 @@
             </body>
             </html>
             </textarea>
-
-            <button class="run-button" onclick="runTabelCode()">Run</button>
-            <button class="undo-button" onclick="undoTabelCode()">Undo</button>
-
-            <h3>Hasil:</h3>
-            <div class="preview" id="previewContentTabel"></div>
             <a href="tabel.html">
               <button class="learn-more-button">Pelajari Lebih Lengkap</button>
             </a>
@@ -317,13 +335,11 @@
             <textarea
               class="editor"
               rows="20"
-              id="contentFormCode"
+              id="contentCode"
               placeholder="Masukkan kode HTML dan CSS di sini"
             >
-            
-            
-          
-          <!DOCTYPE html test>
+            <!-- /* Untuk Tutorial Form */ -->
+            <!DOCTYPE html test>
             <html>
             <head>
               <style>
@@ -486,14 +502,184 @@
             </html>
                   </textarea
             >
-            <button class="run-button" onclick="runFormCode()">Run</button>
-            <button class="undo-button" onclick="undoFormCode()">Undo</button>
-
-            <h3>Hasil:</h3>
-            <div class="preview" id="previewContentForm"></div>
           </div>
           <a href="form.html">
             <button class="learn-more-button">Pelajari Lebih Lengkap</button>
+          </a>
+          <!-- END STYLISH FORM -->
+
+          <!-- Card Style untuk Latihan Form -->
+          <div class="tutorial-box">
+            <h2>4. Latihan membuat titik lokasi</h2>
+            <p>Latihan untuk membuat titik lokasi</p>
+
+            <h3>HTML & CSS Code:</h3>
+            <textarea
+              class="editor"
+              rows="20"
+              id="contentCode"
+              placeholder="Masukkan kode HTML dan CSS di sini"
+            >
+            <!DOCTYPE html >
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Geolocation API</title>
+              <style>
+                /* Body styling */
+                body {
+                  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color: #71585c;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                }
+
+                /* Container for content */
+                .container {
+                  text-align: center;
+                  background-color: #ffffff;
+                  border-radius: 15px;
+                  padding: 40px;
+                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                  max-width: 500px;
+                  width: 100%;
+                }
+
+                h1 {
+                  font-size: 24px;
+                  color: #333;
+                  margin-bottom: 20px;
+                }
+
+                /* Stylish button */
+                button {
+                  background-color: #532225;
+                  color: #fff;
+                  border: none;
+                  padding: 15px 30px;
+                  border-radius: 25px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                }
+
+                button:hover {
+                  background-color: #ff0000;
+                }
+
+                /* Location result box */
+                #location {
+                  margin-top: 20px;
+                  padding: 20px;
+                  border-radius: 15px;
+                  background-color: #e9f7f9;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                  display: none;
+                }
+
+                h3 {
+                  margin-bottom: 10px;
+                  font-size: 20px;
+                  color: #101324;
+                }
+
+                p {
+                  font-size: 16px;
+                  color: #555;
+                  margin: 5px 0;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <!-----Menampilkan Judul------>
+                <h1>Get User Location with Geolocation API</h1>
+
+                <!----------Button untuk menampilkan lokasi pengguna------->
+                <button onclick="getLocation()">Get Location</button>
+
+                <div id="location">
+                  <h3>Your Location:</h3>
+                  <p>Latitude: <span id="latitude"></span></p>
+                  <p>Longitude: <span id="longitude"></span></p>
+                  <p>Accuracy: <span id="accuracy"></span> meters</p>
+                </div>
+              </div>
+
+              <script>
+                // Function to get user location
+                
+                function getLocation() {
+                  const locationBox = document.getElementById("location");
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                  } else {
+                    alert("Geolocation is not supported by this browser.");
+                  }
+
+                  // Add loading effect to the button
+                  const button = document.querySelector("button");
+                  button.innerHTML = "Getting Location...";
+                  button.disabled = true;
+                  button.style.backgroundColor = "#ccc";
+                }
+
+                // Function to display position
+                function showPosition(position) {
+                  document.getElementById("latitude").innerHTML =
+                    position.coords.latitude;
+                  document.getElementById("longitude").innerHTML =
+                    position.coords.longitude;
+                  document.getElementById("accuracy").innerHTML =
+                    position.coords.accuracy + " meters";
+
+                  // Show the location div
+                  const locationBox = document.getElementById("location");
+                  locationBox.style.display = "block";
+
+                  // Revert button state
+                  const button = document.querySelector("button");
+                  button.innerHTML = "Get Location";
+                  button.disabled = false;
+                  button.style.backgroundColor = "#007bff";
+                }
+
+                // Function to handle errors
+                function showError(error) {
+                  switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                      alert("User denied the request for Geolocation.");
+                      break;
+                    case error.POSITION_UNAVAILABLE:
+                      alert("Location information is unavailable.");
+                      break;
+                    case error.TIMEOUT:
+                      alert("The request to get user location timed out.");
+                      break;
+                    case error.UNKNOWN_ERROR:
+                      alert("An unknown error occurred.");
+                      break;
+                  }
+
+                  // Revert button state even in case of an error
+                  const button = document.querySelector("button");
+                  button.innerHTML = "Get Location";
+                  button.disabled = false;
+                  button.style.backgroundColor = "#007bff";
+                }
+              </script>
+            </body>
+          </html>
+                  </textarea
+            >
+          </div>
+          <a href="loc.html">
+            <button class="learn-more-button">Klik disini untuk mencoba</button>
           </a>
         </section>
       </main>
@@ -510,10 +696,13 @@
               <a href="#home">Home</a>
             </li>
             <li class="footer_menu_list">
-              <a href="tabel.html">Cara membuat tabel</a>
+              <a href="tabel.html">Tutorial Tabel</a>
             </li>
             <li class="footer_menu_list">
-              <a href="form.html">cara membuat form</a>
+              <a href="form.html">Tutorial Form</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="loc.html">Tutorial Titik Lokasi</a>
             </li>
           </ul>
         </div>
@@ -569,49 +758,6 @@
         } else {
           document.getElementById("previewContent").innerHTML = ""; // Hapus hasil jika tidak ada riwayat
           document.getElementById("contentCode").value = ""; // Hapus input juga
-        }
-      }
-      const contentCodeHistory = []; // Inisialisasi array untuk menyimpan riwayat kode
-
-      function runTabelCode() {
-        const code = document.getElementById("contentTabelCode").value;
-        document.getElementById("previewContentTabel").innerHTML = code;
-        contentCodeHistory.push(code);
-      }
-
-      // Fungsi untuk mengembalikan kode sebelumnya
-      function undoTabelCode() {
-        if (contentCodeHistory.length > 1) {
-          contentCodeHistory.pop(); // Hapus entri terakhir
-          const previousCode =
-            contentCodeHistory[contentCodeHistory.length - 1];
-          document.getElementById("contentTabelCode").value = previousCode;
-          document.getElementById("previewContentTabel").innerHTML =
-            previousCode; // Perbarui preview
-        } else {
-          document.getElementById("previewContentTabel").innerHTML = ""; // Hapus hasil jika tidak ada riwayat
-          document.getElementById("contentTabelCode").value = ""; // Hapus input juga
-        }
-      }
-      const formCodeHistory = []; // Inisialisasi array untuk menyimpan riwayat kode form
-
-      function runFormCode() {
-        const code = document.getElementById("contentFormCode").value;
-        document.getElementById("previewContentForm").innerHTML = code;
-        formCodeHistory.push(code);
-      }
-
-      // Fungsi untuk mengembalikan kode sebelumnya
-      function undoFormCode() {
-        if (formCodeHistory.length > 1) {
-          formCodeHistory.pop(); // Hapus entri terakhir
-          const previousCode = formCodeHistory[formCodeHistory.length - 1];
-          document.getElementById("contentFormCode").value = previousCode;
-          document.getElementById("previewContentForm").innerHTML =
-            previousCode; // Perbarui preview
-        } else {
-          document.getElementById("previewContentForm").innerHTML = ""; // Hapus hasil jika tidak ada riwayat
-          document.getElementById("contentFormCode").value = ""; // Hapus input juga
         }
       }
     </script>
