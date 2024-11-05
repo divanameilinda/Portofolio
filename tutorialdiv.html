@@ -18,6 +18,11 @@
       footer {
         margin-top: 100px;
       }
+      .top-header h1 {
+        color: #3b3232;
+        font-weight: bold;
+        margin-top: 20px;
+      }
     </style>
     <!-- --------- FAVICON ---------- -->
     <link
@@ -49,6 +54,12 @@
               <a href="form.html" class="nav-link">Cara Membuat Form</a>
               <div class="circle"></div>
             </li>
+            <li class="nav_list">
+              <a href="location.html" class="nav-link"
+                >Cara Membuat Titik Lokasi</a
+              >
+              <div class="circle"></div>
+            </li>
           </ul>
         </div>
         <div class="nav-menu-btn">
@@ -60,17 +71,17 @@
       <main class="wrapper">
         <section class="section" id="tutorials">
           <div class="top-header">
-            <h1>Tutorial: CSS Basics</h1>
+            <h1><u>Tutorial Sederhana CSS Basic</u></h1>
           </div>
-
           <!-- Card Style untuk Latihan Page Margin -->
+
+          <!-- UNTUK TUTORIAL CSS -->
           <div class="tutorial-box">
             <h2>1. Latihan Page Margin dengan CSS Editor</h2>
             <p>
               Latihan untuk mengatur margin, indentasi, dan tata letak halaman
               menggunakan HTML dan CSS langsung dari editor.
             </p>
-
             <h3>HTML & CSS Code:</h3>
             <textarea
               class="editor"
@@ -137,10 +148,10 @@
             <button class="undo-button" onclick="undoContentCode()">
               Undo
             </button>
-
             <h3>Hasil:</h3>
             <div class="preview" id="previewContent"></div>
           </div>
+          <!-- END TUTORIAL CSS BASIC -->
 
           <!-- Card Style untuk Latihan Tabel -->
           <div class="tutorial-box">
@@ -151,9 +162,11 @@
             <textarea
               class="editor"
               rows="20"
-              id="contentCode"
+              id="contentTabelCode"
               placeholder="Masukkan kode HTML dan CSS di sini"
             >
+           
+            
             <!DOCTYPE html test>
             <html>
             <head>
@@ -284,14 +297,16 @@
             </html>
             </textarea>
 
-            <button class="run-button" onclick="runContentCode()">Run</button>
-            <button class="undo-button" onclick="undoContentCode()">
-              Undo
-            </button>
+            <button class="run-button" onclick="runTabelCode()">Run</button>
+            <button class="undo-button" onclick="undoTabelCode()">Undo</button>
 
             <h3>Hasil:</h3>
-            <div class="preview" id="previewContent"></div>
+            <div class="preview" id="previewContentTabel"></div>
+            <a href="tabel.html">
+              <button class="learn-more-button">Pelajari Lebih Lengkap</button>
+            </a>
           </div>
+          <!-- END STYLISH TABEL -->
 
           <!-- Card Style untuk Latihan Form -->
           <div class="tutorial-box">
@@ -302,10 +317,13 @@
             <textarea
               class="editor"
               rows="20"
-              id="contentCode"
+              id="contentFormCode"
               placeholder="Masukkan kode HTML dan CSS di sini"
             >
-            <!DOCTYPE html test>
+            
+            
+          
+          <!DOCTYPE html test>
             <html>
             <head>
               <style>
@@ -325,7 +343,7 @@
       /* Pengaturan container form login */
       .login-container {
         margin-top: 20px; /* Bisa disesuaikan jika ingin jarak lebih */
-        background-color: rgb(228, 200, 200);
+        background-color: rgb(203, 88, 88);
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -468,16 +486,18 @@
             </html>
                   </textarea
             >
-            <button class="run-button" onclick="runContentCode()">Run</button>
-            <button class="undo-button" onclick="undoContentCode()">
-              Undo
-            </button>
+            <button class="run-button" onclick="runFormCode()">Run</button>
+            <button class="undo-button" onclick="undoFormCode()">Undo</button>
 
             <h3>Hasil:</h3>
-            <div class="preview" id="previewContent"></div>
+            <div class="preview" id="previewContentForm"></div>
           </div>
+          <a href="form.html">
+            <button class="learn-more-button">Pelajari Lebih Lengkap</button>
+          </a>
         </section>
       </main>
+      <!-- END STYLISH FORM -->
 
       <!-- --------------- FOOTER --------------- -->
       <footer>
@@ -549,6 +569,49 @@
         } else {
           document.getElementById("previewContent").innerHTML = ""; // Hapus hasil jika tidak ada riwayat
           document.getElementById("contentCode").value = ""; // Hapus input juga
+        }
+      }
+      const contentCodeHistory = []; // Inisialisasi array untuk menyimpan riwayat kode
+
+      function runTabelCode() {
+        const code = document.getElementById("contentTabelCode").value;
+        document.getElementById("previewContentTabel").innerHTML = code;
+        contentCodeHistory.push(code);
+      }
+
+      // Fungsi untuk mengembalikan kode sebelumnya
+      function undoTabelCode() {
+        if (contentCodeHistory.length > 1) {
+          contentCodeHistory.pop(); // Hapus entri terakhir
+          const previousCode =
+            contentCodeHistory[contentCodeHistory.length - 1];
+          document.getElementById("contentTabelCode").value = previousCode;
+          document.getElementById("previewContentTabel").innerHTML =
+            previousCode; // Perbarui preview
+        } else {
+          document.getElementById("previewContentTabel").innerHTML = ""; // Hapus hasil jika tidak ada riwayat
+          document.getElementById("contentTabelCode").value = ""; // Hapus input juga
+        }
+      }
+      const formCodeHistory = []; // Inisialisasi array untuk menyimpan riwayat kode form
+
+      function runFormCode() {
+        const code = document.getElementById("contentFormCode").value;
+        document.getElementById("previewContentForm").innerHTML = code;
+        formCodeHistory.push(code);
+      }
+
+      // Fungsi untuk mengembalikan kode sebelumnya
+      function undoFormCode() {
+        if (formCodeHistory.length > 1) {
+          formCodeHistory.pop(); // Hapus entri terakhir
+          const previousCode = formCodeHistory[formCodeHistory.length - 1];
+          document.getElementById("contentFormCode").value = previousCode;
+          document.getElementById("previewContentForm").innerHTML =
+            previousCode; // Perbarui preview
+        } else {
+          document.getElementById("previewContentForm").innerHTML = ""; // Hapus hasil jika tidak ada riwayat
+          document.getElementById("contentFormCode").value = ""; // Hapus input juga
         }
       }
     </script>
